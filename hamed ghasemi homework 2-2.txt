@@ -1,0 +1,24 @@
+import random
+def randomise():
+    while True:
+        number = random.randint(100, 999)
+        if number % 2 == 0:
+            return number
+
+def guess_num():
+    num = randomise()
+    guesses = 0
+    guess = int(input("Enter your guess number :"))
+    while guess != num:
+        guesses += 1
+        if guess > num:
+            print("guess smaller number")
+        elif guess < num:
+            print("guess bigger number")
+        guess = int(input("Enter number :"))
+
+    print("You find number with", guesses, "guesses")
+    print(num,"is our number" )
+
+if __name__ == "__main__":
+    guess_num()

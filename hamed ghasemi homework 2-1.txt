@@ -1,0 +1,29 @@
+class Node:
+    def num(number, data):
+        number.data = data
+        number.left = None
+        number.right = None
+
+def insert(values, data):
+    if values == None:
+        return Node(data)
+    else:
+        if data < values.data:
+            values.left = insert(values.left, data)
+        else:
+            values.right = insert(values.right, data)
+    return values
+
+def inorder(values):
+    if values:
+        inorder(values.left)
+        print(values.data, end=" ")
+        inorder(values.right)
+
+values = None
+for _ in range(10):
+    number = int(input("enter number: "))
+    values = insert(values, number)
+
+print("lit:")
+inorder(values)
